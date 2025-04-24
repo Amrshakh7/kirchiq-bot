@@ -19,6 +19,15 @@ async def new_member_handler(message: Message):
 async def left_member_handler(message: Message):
     await message.delete()
 
+@dp.message(F.text == "/start", F.chat.type == "private")
+async def start_handler(message: Message):
+    await message.answer(
+        "Assalomu alaykum! 👋\n\n"
+        "Men KirChiq Bot 🤖\n"
+        "Guruhingizdagi kirgan yoki chiqqan a’zolarning xabarlarini jim o‘chiraman 🧼\n\n"
+        "🛠 Faqat meni guruhga admin qiling – bo‘ldi 😎"
+    )
+
 async def main():
     await dp.start_polling(bot)
 
